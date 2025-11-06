@@ -29,7 +29,8 @@ function DebugViewInstances(_startVisible = true) {
 			if (__section != undefined) {
 				dbg_section_delete(__section);
 			}
-			
+
+			dbg_set_view(__view);
 			__section = dbg_section($"Total: {instance_count}");
 			array_foreach(__objects, function(_obj) {
 				if (_obj.__n > 0) {
