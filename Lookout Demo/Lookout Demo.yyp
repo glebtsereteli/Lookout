@@ -1,0 +1,41 @@
+{
+  "$GMProject":"v1",
+  "%Name":"Lookout Demo",
+  "AudioGroups":[
+    {"$GMAudioGroup":"v1","%Name":"audiogroup_default","exportDir":"","name":"audiogroup_default","resourceType":"GMAudioGroup","resourceVersion":"2.0","targets":-1,},
+  ],
+  "configs":{
+    "children":[],
+    "name":"Default",
+  },
+  "defaultScriptType":1,
+  "Folders":[
+    {"$GMFolder":"","%Name":"01. Demo","folderPath":"folders/01. Demo.yy","name":"01. Demo","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"02. Lookout","folderPath":"folders/02. Lookout.yy","name":"02. Lookout","resourceType":"GMFolder","resourceVersion":"2.0",},
+  ],
+  "ForcedPrefabProjectReferences":[],
+  "IncludedFiles":[],
+  "isEcma":false,
+  "LibraryEmitters":[],
+  "MetaData":{
+    "IDEVersion":"2024.14.0.207",
+  },
+  "name":"Lookout Demo",
+  "resources":[
+    {"id":{"name":"objDemo","path":"objects/objDemo/objDemo.yy",},},
+    {"id":{"name":"rmDemo","path":"rooms/rmDemo/rmDemo.yy",},},
+    {"id":{"name":"DebugViewDisplay","path":"scripts/DebugViewDisplay/DebugViewDisplay.yy",},},
+    {"id":{"name":"DebugViewInstances","path":"scripts/DebugViewInstances/DebugViewInstances.yy",},},
+    {"id":{"name":"DebugViewResources","path":"scripts/DebugViewResources/DebugViewResources.yy",},},
+    {"id":{"name":"DebugViewRooms","path":"scripts/DebugViewRooms/DebugViewRooms.yy",},},
+  ],
+  "resourceType":"GMProject",
+  "resourceVersion":"2.0",
+  "RoomOrderNodes":[
+    {"roomId":{"name":"rmDemo","path":"rooms/rmDemo/rmDemo.yy",},},
+  ],
+  "templateType":"game",
+  "TextureGroups":[
+    {"$GMTextureGroup":"","%Name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","customOptions":"","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"name":"Default","resourceType":"GMTextureGroup","resourceVersion":"2.0","targets":-1,},
+  ],
+}
