@@ -2,7 +2,7 @@
 /// @func LookoutDisplay()
 /// @param {Bool} startVisible? Whether the debug view should start visible (true) or not (false). [Default: true]
 /// @desc Shows display, window, surface, GUI, and view information in a Display debug view.
-/// Call once at the start of the game.
+/// Call anywhere in the project.
 function LookoutDisplay(_startVisible = true) {
 	static __ = new (function(_startVisible) constructor {
 		__display = undefined;
@@ -11,10 +11,9 @@ function LookoutDisplay(_startVisible = true) {
 		__gui = undefined;
 		__views = array_create_ext(8, function(_i) {
 			return {
-				__index: _i,
 				__visible: undefined,
-				__size: undefined,
 				__pos: undefined,
+				__size: undefined,
 			};
 		});
 		
@@ -27,8 +26,9 @@ function LookoutDisplay(_startVisible = true) {
 			array_foreach(__views, function(_view, _i) {
 				_view.__visible = (view_visible[_i] ? "True" : "False");
 				var _cam = view_camera[_i];
-				_view.__size = __GetString(camera_get_view_width(_cam), camera_get_view_height(_cam));
 				_view.__pos = $"{camera_get_view_x(_cam)},{camera_get_view_y(_cam)}";
+				_view.__size = __GetString(camera_get_view_width(_cam), camera_get_view_height(_cam));
+				_view.__port = $"Pos: {view_get_xport(_i)},{view_get_yport(_i)}. Size: {view_get_wport(_i)}x{view_get_hport(_i)}"
 			});
 		};
 		__GetString = function(_w, _h) {
@@ -46,8 +46,9 @@ function LookoutDisplay(_startVisible = true) {
 		array_foreach(__views, function(_view, _i) {
 			dbg_section($"View {_i}", (_i == 0));
 			dbg_watch(ref_create(_view, "__visible"), "Visible");
-			dbg_watch(ref_create(_view, "__size"), "Size");
 			dbg_watch(ref_create(_view, "__pos"), "Position");
+			dbg_watch(ref_create(_view, "__size"), "Size");
+			dbg_watch(ref_create(_view, "__port"), "Port");
 		});
 		
 		__Refresh();

@@ -1,8 +1,10 @@
 
+//LookoutResources();
+//LookoutInstances();
 LookoutDisplay();
-LookoutInstances();
-LookoutResources();
-LookoutRooms();
+//LookoutRooms();
 
 var _dummy = dbg_view("dummy");
 dbg_view_delete(_dummy);
+
+dbg_view("Lookout: Control", true);
