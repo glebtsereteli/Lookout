@@ -20,7 +20,7 @@ function LookoutResources(_startVisible = true) {
 		_Refresh();
 		call_later(1, time_source_units_frames, _Refresh, true);
 		
-		dbg_view("Lookout: Resources", _startVisible, 8, 27, 350, 550);
+		dbg_view("Lookout: Resources", _startVisible, 8, 27, 420, 550);
 		dbg_section("Resources"); {
 			dbg_watch(ref_create(self, "instanceCount"), "Instances");
 			dbg_text_separator("");

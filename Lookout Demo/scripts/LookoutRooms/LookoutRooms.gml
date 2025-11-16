@@ -42,7 +42,7 @@ function LookoutRooms(_startVisible = true) {
 			__history.__Add(_room);
 		};
 		
-		dbg_view("Lookout: Rooms", _startVisible, 8, 27);
+		dbg_view("Lookout: Rooms", _startVisible, 8, 27, 420, 414);
 		dbg_section("Control");
 		dbg_drop_down(ref_create(self, "__room"), __rooms, __names, "Room");
 		
@@ -62,18 +62,13 @@ function LookoutRooms(_startVisible = true) {
 			__GoTo(__rooms[_index]);
 		}, _size, _size);
 		
+		var _w = 127;
 		dbg_watch(ref_create(self, "__size"), "Size");
-		dbg_button("Restart", function() {
-			__GoTo(room);
-		});
+		dbg_button("Restart", function() { __GoTo(room); }, _w, _size);
 		dbg_same_line();
-		dbg_button("First", function() {
-			__GoTo(room_first);
-		});
+		dbg_button("First", function() { __GoTo(room_first); }, _w - 1, _size);
 		dbg_same_line();
-		dbg_button("Last", function() {
-			__GoTo(room_last);
-		});
+		dbg_button("Last", function() { __GoTo(room_last); }, _w - 1, _size);
 		
 		__history.__Init();
 		

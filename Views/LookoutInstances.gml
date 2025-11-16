@@ -19,7 +19,7 @@ function LookoutInstances(_startVisible = true) {
 			};
 		});
 		__totalInstances = undefined;
-		__view = dbg_view("Lookout: Instances", _startVisible, 16, 35, 400, 500);
+		__view = dbg_view("Lookout: Instances", _startVisible, 16, 35, 420, 500);
 		__section = undefined;
 		
 		__Refresh = function() {

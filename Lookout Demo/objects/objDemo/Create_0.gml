@@ -1,8 +1,8 @@
 
-//LookoutResources();
+LookoutResources(false);
 LookoutInstances();
-//LookoutDisplay();
-//LookoutRooms();
+LookoutDisplay(false);
+LookoutRooms(false);
 
 var _dummy = dbg_view("dummy");
 dbg_view_delete(_dummy);
