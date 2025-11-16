@@ -1,7 +1,7 @@
 
 //LookoutResources();
-//LookoutInstances();
-LookoutDisplay();
+LookoutInstances();
+//LookoutDisplay();
 //LookoutRooms();
 
 var _dummy = dbg_view("dummy");

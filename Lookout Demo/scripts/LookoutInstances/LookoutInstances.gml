@@ -1,3 +1,4 @@
+// feather ignore all
 
 /// @func LookoutInstances()
 /// @param {Bool} startVisible? Whether the debug view should start visible (true) or not (false). [Default: true]
@@ -29,12 +30,18 @@ function LookoutInstances(_startVisible = true) {
 			if (__section != undefined) {
 				dbg_section_delete(__section);
 			}
-
+			
 			dbg_set_view(__view);
 			__section = dbg_section($"Total: {instance_count}");
 			array_foreach(__objects, function(_obj) {
-				if (_obj.__n > 0) {
-					dbg_watch(ref_create(_obj, "__n"), _obj.__name);
+				with (_obj) {
+					if (__n > 0) {
+						dbg_watch(ref_create(_obj, "__n"), _obj.__name);
+						dbg_same_line();
+						dbg_button("Destroy", function() {
+							instance_destroy(__ref);
+						}, 60, 19);
+					}
 				}
 			});
 		};

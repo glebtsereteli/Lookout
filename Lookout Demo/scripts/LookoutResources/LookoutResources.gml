@@ -1,3 +1,4 @@
+// feather ignore all
 
 /// @func LookoutResources()
 /// @param {Bool} startVisible? Whether the debug view should start visible (true) or not (false). [Default: true]
