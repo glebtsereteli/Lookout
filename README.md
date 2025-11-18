@@ -1,3 +1,6 @@
+
+<img width="1280" height="300" alt="banner" src="https://github.com/user-attachments/assets/ff3e8122-2e01-4c94-9419-aead1907452d" />
+
 # Lookout vX.X.X (PRE-RELEASE WIP)
 
 Lookout is a compact [Free and Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software) GameMaker library offering a variety of [Debug Overlay](https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Debugging/The_Debug_Overlay.htm) views for identifying common but often hard-to-diagnose problems.
@@ -19,6 +22,7 @@ These views have proven invaluable for tracking bugs and memory leaks across man
 4. Access your views under the Views menu in the top bar of the [Debug Overlay](https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Debugging/The_Debug_Overlay.htm).
 
 ## Credits
+* Wonderful promo art by the very talented [neerikiffu](https://bsky.app/profile/neerikiffu.bsky.social)!
 * Thanks to [Omar Cornut](https://www.miracleworld.net/) for making the infinitely useful [Dear ImGui](https://github.com/ocornut/imgui) and to the GameMaker team for implementing it in the [Debug Overlay](https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Debugging/The_Debug_Overlay.htm).
 
 ## Upcoming Views
