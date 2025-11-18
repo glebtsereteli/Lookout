@@ -5,8 +5,6 @@
 /// @desc Displays the overall and per-object instance counts in a debug view, including differences between frames, with an option to destroy objects.
 /// Helps track existing objects and their instance counts to identify objects that are out of place.
 /// Call this function once at the start of the game.
-/// ____________________________
-/// Version: v1.0.0 (2025.11.18)
 function LookoutInstances(_startVisible = true) {
 	static __ = new (function(_startVisible) constructor {
 		__objects = array_map(asset_get_ids(asset_object), function(_obj) {

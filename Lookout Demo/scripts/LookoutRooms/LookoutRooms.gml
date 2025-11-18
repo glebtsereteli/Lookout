@@ -4,8 +4,6 @@
 /// @param {Bool} startVisible? Whether the debug view should start visible (true) or not (false). [Default: true]
 /// @desc Provides control over room switching and displays room history in a Rooms debug overlay view.
 /// Call this function once at the start of the game.
-/// ____________________________
-/// Version: v1.0.0 (2025.11.18)
 function LookoutRooms(_startVisible = true) {
 	static __ = new(function(_startVisible) constructor {
 		__rooms = asset_get_ids(asset_room);
@@ -43,7 +41,7 @@ function LookoutRooms(_startVisible = true) {
 			__prevRoom = __room;
 			__history.__Add(_room);
 		};
-		
+		 
 		dbg_view("Lookout: Rooms", _startVisible, 16, 35, 420, 414);
 		dbg_section("Control");
 		dbg_drop_down(ref_create(self, "__room"), __rooms, __names, "Room");

@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"LookoutRooms",
   "parent":{
-    "name":"02. Lookout",
-    "path":"folders/02. Lookout.yy",
+    "name":"01. Public",
+    "path":"folders/02. Lookout/01. Public.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

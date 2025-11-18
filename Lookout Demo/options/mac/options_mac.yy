@@ -11,7 +11,7 @@
   "option_mac_arm64":true,
   "option_mac_build_app_store":false,
   "option_mac_build_number":0,
-  "option_mac_copyright":"",
+  "option_mac_copyright":"Copyright (c) 2025 Gleb Tsereteli",
   "option_mac_disable_sandbox":false,
   "option_mac_display_cursor":true,
   "option_mac_display_name":"Lookout Demo",

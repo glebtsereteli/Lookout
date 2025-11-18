@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"LookoutResources",
+  "%Name":"__LookoutInit",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"LookoutResources",
+  "name":"__LookoutInit",
   "parent":{
-    "name":"01. Public",
-    "path":"folders/02. Lookout/01. Public.yy",
+    "name":"02.  __Private",
+    "path":"folders/02. Lookout/02.  __Private.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

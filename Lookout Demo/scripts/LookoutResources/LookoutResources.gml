@@ -4,8 +4,6 @@
 /// @param {Bool} startVisible? Whether the debug view should start visible (true) or not (false). [Default: true]
 /// @desc Displays the data fetched from debug_event("ResourceCounts") and debug_event("DumpMemory") in a Resource Counts debug overlay view.
 /// Call this function once at the start of the game.
-/// ____________________________
-/// Version: v1.0.0 (2025.11.18)
 function LookoutResources(_startVisible = true) {
 	static __ = new (function(_startVisible) constructor {
 		var _Refresh = function() {
