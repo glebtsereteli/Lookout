@@ -12,10 +12,10 @@ These views have proven invaluable for tracking bugs and memory leaks across man
 
 ## Views
 
-* **LookoutResources()**. Displays `"ResourceCounts"` and `"DumpMemory"` data from [debug_event()](https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Debugging/debug_event.htm). Helps track memory leaks from data structures, surfaces, buffers, particles, time sources, and other runtime-created assets that can be accidentally left undisposed.
-* **LookoutInstances()**. Displays the overall and per-object instance counts, including differences between frames, with an option to destroy objects. Helps track existing objects and their instance counts to identify misplaced instances.
-* **LookoutDisplay()**. Provides detailed information and controls for display, window, application surface, and views. Inspired by [Pixelated Pope](https://www.pixelatedpope.com/)'s [display_write_all_specs()](https://github.com/PixelatedPope/HelpfulGMLScripts/blob/master/Camera%20and%20Views/display_write_all_specs.gml).
-* **LookoutRooms()**. Provides controls over room switching and displays room history. Useful for quickly switching between rooms for testing and identifying unintentional room changes.
+* `LookoutResources()`. Displays `"ResourceCounts"` and `"DumpMemory"` data from [debug_event()](https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Debugging/debug_event.htm). Helps track memory leaks from data structures, surfaces, buffers, particles, time sources, and other runtime-created assets that can be accidentally left undisposed.
+* `LookoutInstances()`. Displays the overall and per-object instance counts, including differences between frames, with an option to destroy objects. Helps track existing objects and their instance counts to identify misplaced instances.
+* `LookoutDisplay()`. Provides detailed information and controls for display, window, application surface, and views. Inspired by [Pixelated Pope](https://www.pixelatedpope.com/)'s [display_write_all_specs()](https://github.com/PixelatedPope/HelpfulGMLScripts/blob/master/Camera%20and%20Views/display_write_all_specs.gml).
+* `LookoutRooms()`. Provides controls over room switching and displays room history. Useful for quickly switching between rooms for testing and identifying unintentional room changes.
 
 ## Usage
 
@@ -31,6 +31,8 @@ These views have proven invaluable for tracking bugs and memory leaks across man
 
 ## Games Using Lookout
 * [DirtWorld](https://krankenhaus-uk.itch.io/dirtworld) by [Joe Baxter-Webb/Indie Game Clinic/KRANKENHAUS](https://indiegameclinic.com/).
+* Many other projects using early parts of the library.
+* And more to come :)
 
 ## Upcoming Views
 

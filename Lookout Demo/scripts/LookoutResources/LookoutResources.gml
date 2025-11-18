@@ -1,8 +1,15 @@
 // feather ignore all
 
 /// @func LookoutResources()
-/// @param {Bool} startVisible? Whether the debug view should start visible (true) or not (false). [Default: true]
-/// @desc Displays the data fetched from debug_event("ResourceCounts") and debug_event("DumpMemory") in a Resource Counts debug overlay view.
+/// @param {Bool} startVisible? Whether the debug view starts visible (true) or not (false). [Default: true]
+/// 
+/// @desc Displays "ResourceCounts" and "DumpMemory" data from debug_event(). 
+/// Helps track memory leaks from data structures, surfaces, buffers, particles, time sources,
+/// and other runtime-created assets that can be accidentally left undisposed.
+/// 
+/// NOTE: This function is quite slow when the debug overview is open, because debug_event() is called repeatedly.
+/// Don't be alarmed if your FPS drops with this enabled.
+/// 
 /// Call this function once at the start of the game.
 function LookoutResources(_startVisible = true) {
 	static __ = new (function(_startVisible) constructor {

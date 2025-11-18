@@ -1,8 +1,11 @@
 // feather ignore all
 
 /// @func LookoutRooms()
-/// @param {Bool} startVisible? Whether the debug view should start visible (true) or not (false). [Default: true]
+/// @param {Bool} startVisible? Whether the debug view starts visible (true) or not (false). [Default: true]
+/// 
 /// @desc Provides control over room switching and displays room history in a Rooms debug overlay view.
+/// Useful for quickly switching between rooms for testing and identifying unintentional room changes.
+///
 /// Call this function once at the start of the game.
 function LookoutRooms(_startVisible = true) {
 	static __ = new(function(_startVisible) constructor {

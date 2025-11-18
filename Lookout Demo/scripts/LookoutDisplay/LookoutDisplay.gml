@@ -1,8 +1,11 @@
 // feather ignore all
 
 /// @func LookoutDisplay()
-/// @param {Bool} startVisible? Whether the debug view should start visible (true) or not (false). [Default: true]
+/// @param {Bool} startVisible? Whether the debug view starts visible (true) or not (false). [Default: true]
+/// 
 /// @desc Provides info and controls for display, window, application surface, and views in a "Lookout: Display" debug view.
+/// Inspired by Pixelated Pope's display_write_all_specs().
+/// 
 /// Call this function once at the start of the game.
 function LookoutDisplay(_startVisible = true) {
 	static __ = new (function(_startVisible) constructor {
