@@ -30,7 +30,7 @@ function LookoutResources(_startVisible = true) {
 			dbg_watch(ref_create(self, "gridCount"), "DS Grids");
 			dbg_watch(ref_create(self, "priorityCount"), "DS Priority Queues");
 			dbg_watch(ref_create(self, "stackCount"), "DS Stacks");
-			dbg_watch(ref_create(self, "mpGridCount"), "DS Grids");
+			dbg_watch(ref_create(self, "mpGridCount"), "MP Grids");
 			dbg_watch(ref_create(self, "bufferCount"), "Buffers");
 			dbg_watch(ref_create(self, "vertexBufferCount"), "Vertex Buffers");
 			dbg_watch(ref_create(self, "surfaceCount"), "Surfaces");
