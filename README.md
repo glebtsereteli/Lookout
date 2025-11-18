@@ -7,6 +7,9 @@ Lookout is a compact [Free and Open Source](https://en.wikipedia.org/wiki/Free_a
 
 These views have proven invaluable for tracking bugs and memory leaks across many projects. Use them alongside the [Debugger](https://manual.gamemaker.io/monthly/en/IDE_Tools/The_Debugger.htm) to quickly identify and resolve issues in your games.
 
+* **GameMaker Version**: [v2024.14](https://releases.gamemaker.io/release-notes/2024/14) (the latest Monthly).
+* **Platforms**: All but HTML5.
+
 ## Views
 
 * [Resources](https://github.com/glebtsereteli/Lookout/blob/main/Views/LookoutResources.gml). Displays `"ResourceCounts"` and `"DumpMemory"` data from [debug_event()](https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Debugging/debug_event.htm). Helps track memory leaks from data structures, surfaces, buffers, particles, time sources, and other runtime-created assets that can be accidentally left undisposed.
