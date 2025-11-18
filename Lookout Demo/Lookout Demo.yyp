@@ -56,6 +56,7 @@
     {"id":{"name":"LookoutInstances","path":"scripts/LookoutInstances/LookoutInstances.yy",},},
     {"id":{"name":"LookoutResources","path":"scripts/LookoutResources/LookoutResources.yy",},},
     {"id":{"name":"LookoutRooms","path":"scripts/LookoutRooms/LookoutRooms.yy",},},
+    {"id":{"name":"scrDemo","path":"scripts/scrDemo/scrDemo.yy",},},
     {"id":{"name":"sprDemo","path":"sprites/sprDemo/sprDemo.yy",},},
     {"id":{"name":"sprDemoGorilla","path":"sprites/sprDemoGorilla/sprDemoGorilla.yy",},},
     {"id":{"name":"sprDemoOwl","path":"sprites/sprDemoOwl/sprDemoOwl.yy",},},

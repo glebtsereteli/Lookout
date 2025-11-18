@@ -1,7 +1,7 @@
 
 <img width="1280" height="300" alt="banner" src="https://github.com/user-attachments/assets/ff3e8122-2e01-4c94-9419-aead1907452d" />
 
-# Lookout vX.X.X (PRE-RELEASE WIP)
+# Lookout v1.0.0 (PRE-RELEASE WIP)
 
 Lookout is a compact [Free and Open Source](https://en.wikipedia.org/wiki/Free_and_open-source_software) GameMaker library offering a variety of [Debug Overlay](https://manual.gamemaker.io/monthly/en/GameMaker_Language/GML_Reference/Debugging/The_Debug_Overlay.htm) views for identifying common but often hard-to-diagnose problems.
 
