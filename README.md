@@ -45,5 +45,6 @@ These are the views I plan to add in the future.
 | System | Coming soon | - |
 | Physics | Coming soon | - |
 | Audio Effects | Coming soon | - |
+| Asset Search | Coming soon | - |
 | FMOD | Maybe | Niche |
 | Twitch | Maybe | Niche |
