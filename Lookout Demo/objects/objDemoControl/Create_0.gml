@@ -112,6 +112,7 @@ dbg_view("Demo: Resources", false, 16, 35, 300, 850); {
 			},
 			font_delete
 		);
+		new Res("Animation Curve", animcurve_create, animcurve_destroy);
 		new Res("Timeline", timeline_add, timeline_delete);
 	}
 }

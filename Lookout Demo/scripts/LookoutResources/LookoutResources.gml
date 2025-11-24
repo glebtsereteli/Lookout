@@ -28,6 +28,8 @@ function LookoutResources(_startVisible = true) {
 				}
 				self[$ $"{_key}Prev"] = _value;
 			});
+			__animCurves = array_length(asset_get_ids(asset_animationcurve));
+			
 			struct_foreach(debug_event("DumpMemory", true), function(_key, _value) {
 				self[$ _key] = $"{string_format(_value / 1_000_000, 1, 2)}mb";
 			});
@@ -57,10 +59,11 @@ function LookoutResources(_startVisible = true) {
 			dbg_watch(ref_create(self, "timeSourceCount"), "Time Sources");
 		}
 		dbg_section("Assets"); {
-			dbg_watch(ref_create(self, "spriteCount"), "Sprites");		
+			dbg_watch(ref_create(self, "spriteCount"), "Sprites");
 			dbg_watch(ref_create(self, "pathCount"), "Paths");
 			dbg_watch(ref_create(self, "fontCount"), "Fonts");
 			dbg_watch(ref_create(self, "roomCount"), "Rooms");
+			dbg_watch(ref_create(self, "__animCurves"), "Animation Curves");
 			dbg_watch(ref_create(self, "timelineCount"), "Timelines");
 		}
 		dbg_section("Memory"); {
