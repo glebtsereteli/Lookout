@@ -3,11 +3,11 @@
 /// @func LookoutResources()
 /// @param {Bool} startVisible? Whether the debug view starts visible (true) or not (false). [Default: true]
 /// 
-/// @desc Displays "ResourceCounts" and "DumpMemory" data from debug_event(). 
+/// @desc Displays "ResourceCounts" and "DumpMemory" data from debug_event() + a few custom-tracked resources.
 /// Helps track memory leaks from data structures, surfaces, buffers, particles, time sources,
 /// and other runtime-created assets that can be accidentally left undisposed.
 /// 
-/// NOTE: This function is quite slow when the debug overview is open, because debug_event() is called repeatedly.
+/// NOTE: This function is quite slow when the Debug Overlay is open, since debug_event() is being called every frame.
 /// Don't be alarmed if your FPS drops with this enabled.
 /// 
 /// Call this function once at the start of the game.
@@ -49,28 +49,35 @@ function LookoutResources(_startVisible = true) {
 		_Refresh();
 		call_later(1, time_source_units_frames, _Refresh, true);
 		
-		dbg_view("Lookout: Resources", _startVisible, 16, 35, 420, 550);
+		dbg_view("Lookout: Resources", _startVisible, 16, 35, 420, 640);
 		dbg_section("Resources"); {
-			dbg_watch(ref_create(self, "instanceCount"), "Instances");
-			dbg_text_separator("");
-			dbg_watch(ref_create(self, "listCount"), "DS Lists");
-			dbg_watch(ref_create(self, "mapCount"), "DS Maps");
-			dbg_watch(ref_create(self, "queueCount"), "DS Queues");
-			dbg_watch(ref_create(self, "gridCount"), "DS Grids");
-			dbg_watch(ref_create(self, "priorityCount"), "DS Priority Queues");
-			dbg_watch(ref_create(self, "stackCount"), "DS Stacks");
-			dbg_watch(ref_create(self, "mpGridCount"), "MP Grids");
-			dbg_watch(ref_create(self, "bufferCount"), "Buffers");
-			dbg_watch(ref_create(self, "vertexBufferCount"), "Vertex Buffers");
-			dbg_watch(ref_create(self, "surfaceCount"), "Surfaces");
-			dbg_watch(ref_create(self, "audioEmitterCount"), "Audio Emitters");
-			dbg_watch(ref_create(self, "__audioSyncGroups"), "Audio Sync Groups");
-			dbg_watch(ref_create(self, "partSystemCount"), "Particle Systems");
-			dbg_watch(ref_create(self, "partEmitterCount"), "Particle Emitters");
-			dbg_watch(ref_create(self, "partTypeCount"), "Particle Types");
-			dbg_watch(ref_create(self, "timeSourceCount"), "Time Sources");
-			dbg_watch(ref_create(self, "__cameras"), "Cameras");
+			dbg_text_separator("Data Structures", 1); {
+				dbg_watch(ref_create(self, "listCount"), "DS Lists");
+				dbg_watch(ref_create(self, "mapCount"), "DS Maps");
+				dbg_watch(ref_create(self, "queueCount"), "DS Queues");
+				dbg_watch(ref_create(self, "gridCount"), "DS Grids");
+				dbg_watch(ref_create(self, "priorityCount"), "DS Priority Queues");
+				dbg_watch(ref_create(self, "stackCount"), "DS Stacks");
+			}
+			dbg_text_separator("Audio", 1); {
+				dbg_watch(ref_create(self, "audioEmitterCount"), "Audio Emitters");
+				dbg_watch(ref_create(self, "__audioSyncGroups"), "Audio Sync Groups");
+			}
+			dbg_text_separator("Particles", 1); {
+				dbg_watch(ref_create(self, "partSystemCount"), "Particle Systems");
+				dbg_watch(ref_create(self, "partEmitterCount"), "Particle Emitters");
+				dbg_watch(ref_create(self, "partTypeCount"), "Particle Types");
+			}
+			dbg_text_separator("Others", 1); {
+				dbg_watch(ref_create(self, "mpGridCount"), "MP Grids");
+				dbg_watch(ref_create(self, "bufferCount"), "Buffers");
+				dbg_watch(ref_create(self, "vertexBufferCount"), "Vertex Buffers");
+				dbg_watch(ref_create(self, "surfaceCount"), "Surfaces");
+				dbg_watch(ref_create(self, "timeSourceCount"), "Time Sources");
+				dbg_watch(ref_create(self, "__cameras"), "Cameras");
+			}
 		}
+		//dbg_watch(ref_create(self, "instanceCount"), "Instances");
 		dbg_section("Assets"); {
 			dbg_watch(ref_create(self, "spriteCount"), "Sprites");
 			dbg_watch(ref_create(self, "pathCount"), "Paths");
