@@ -97,6 +97,7 @@ dbg_view("Demo: Resources", false, 16, 35, 300, 850); {
 			function() { return time_source_create(time_source_global, 1, time_source_units_frames, function() {}); },
 			time_source_destroy
 		);
+		new Res("Camera", camera_create, camera_destroy);
 	}
 	dbg_section("Assets"); {
 		new Res("Sprite",

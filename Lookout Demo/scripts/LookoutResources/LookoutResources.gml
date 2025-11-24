@@ -16,7 +16,15 @@ function LookoutResources(_startVisible = true) {
 		var _Refresh = function() {
 			if (not is_debug_overlay_open()) return;
 			
-			struct_foreach(debug_event("ResourceCounts", true), function(_key, _value) {
+			var _resources = debug_event("ResourceCounts", true);
+			
+			var _cam = camera_create();
+			_resources.__cameras = _cam;
+			camera_destroy(_cam);
+			
+			_resources.__animCurves = array_length(asset_get_ids(asset_animationcurve));
+			
+			struct_foreach(_resources, function(_key, _value) {
 				self[$ _key] ??= _value;
 				self[$ $"{_key}Prev"] ??= _value;
 				
@@ -28,7 +36,6 @@ function LookoutResources(_startVisible = true) {
 				}
 				self[$ $"{_key}Prev"] = _value;
 			});
-			__animCurves = array_length(asset_get_ids(asset_animationcurve));
 			
 			struct_foreach(debug_event("DumpMemory", true), function(_key, _value) {
 				self[$ _key] = $"{string_format(_value / 1_000_000, 1, 2)}mb";
@@ -57,6 +64,7 @@ function LookoutResources(_startVisible = true) {
 			dbg_watch(ref_create(self, "partEmitterCount"), "Particle Emitters");
 			dbg_watch(ref_create(self, "partTypeCount"), "Particle Types");
 			dbg_watch(ref_create(self, "timeSourceCount"), "Time Sources");
+			dbg_watch(ref_create(self, "__cameras"), "Cameras");
 		}
 		dbg_section("Assets"); {
 			dbg_watch(ref_create(self, "spriteCount"), "Sprites");
