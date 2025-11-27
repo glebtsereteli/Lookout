@@ -9,6 +9,13 @@
 function LookoutAudioEffects(_startVisible = true) {
 	static __ = new (function(_startVisible) constructor {
 		static __Effect = function(_index) constructor {
+			static __types = (function() {
+				var _types = variable_clone(__LookoutGetAudioEffectTypes());
+				array_insert(_types, 0, undefined);
+				return _types;
+			})();
+			static __n = array_length(__types);
+			
 			__index = _index;
 			__section = undefined;
 			__type = undefined;
@@ -33,38 +40,15 @@ function LookoutAudioEffects(_startVisible = true) {
 				__Control(dbg_text_input(ref_create(__effect, "freq"), "Frequency", "r"));
 			};
 			
-			static __Refresh = function() {
-				{static _types = [
-					undefined,
-					AudioEffectType.Reverb1,
-					AudioEffectType.Delay,
-					AudioEffectType.Bitcrusher,
-					AudioEffectType.LPF2,
-					AudioEffectType.HPF2,
-					AudioEffectType.Gain,
-					AudioEffectType.Tremolo,
-					AudioEffectType.EQ,
-					AudioEffectType.PeakEQ,
-					AudioEffectType.HiShelf,
-					AudioEffectType.LoShelf,
-					AudioEffectType.Compressor,
-				];}
-				{static _names = [
-					"None",
-					"Reverb1",
-					"Delay",
-					"Bitcrusher",
-					"LPF2",
-					"HPF2",
-					"Gain",
-					"Tremolo",
-					"EQ",
-					"PeakEQ",
-					"HiShelf",
-					"LoShelf",
-					"Compressor",
-				];}
+			static __Change = function(_dir) {
+				var _baseIndex = (__effect == undefined) ? 0 : array_get_index(__types, __effect.type);
+				var _newIndex = __LookoutMod2(_baseIndex + _dir, __n);
 				
+				__type = __types[_newIndex];
+				__effect = (is_undefined(__type) ? undefined : audio_effect_create(__type));
+				audio_bus_main.effects[__index] = __effect;
+			};
+			static __Refresh = function() {
 				if ((__initialized) and (__type == __prevType)) return;
 				
 				if (__initialized) {
@@ -83,7 +67,26 @@ function LookoutAudioEffects(_startVisible = true) {
 				__effect = (is_undefined(__type) ? undefined : audio_effect_create(__type));
 				audio_bus_main.effects[__index] = __effect;
 				
-				__Control(dbg_drop_down(ref_create(self, "__type"), _types, _names, "Effect"));
+				{static _names = [
+					"None",
+					"Reverb1",
+					"Delay",
+					"Bitcrusher",
+					"LPF2",
+					"HPF2",
+					"Gain",
+					"Tremolo",
+					"EQ",
+					"PeakEQ",
+					"HiShelf",
+					"LoShelf",
+					"Compressor",
+				];}
+				__Control(dbg_drop_down(ref_create(self, "__type"), __types, _names, "Effect"));
+				__Control(dbg_same_line());
+				__Control(dbg_button("-", function() { __Change(-1); }, 19, 19));
+				__Control(dbg_same_line());
+				__Control(dbg_button("+", function() { __Change(+1); }, 19, 19));
 				
 				if (__effect != undefined) {
 					__Control(dbg_checkbox(ref_create(__effect, "bypass"), "Bypass"));
@@ -135,7 +138,7 @@ function LookoutAudioEffects(_startVisible = true) {
 						break;
 					}
 					case AudioEffectType.EQ: {
-						__Control(dbg_text(" ..."));
+						__Control(dbg_text(" Coming Soon..."));
 						break;
 					}
 					case AudioEffectType.PeakEQ:
