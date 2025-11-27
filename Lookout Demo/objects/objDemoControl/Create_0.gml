@@ -10,6 +10,7 @@ LookoutResources(false);
 LookoutInstances(false);
 LookoutDisplay(false);
 LookoutRooms(false);
+LookoutAudioEffects(true);
 
 // Initialize demo views:
 dbg_view("Demo: Resources", false, 16, 35, 300, 850); {
@@ -180,3 +181,5 @@ dbg_view("Demo: Instances", false, 16, 35, 250, 320); {
 		new Obj(objDemoGorilla);
 	}
 }
+
+audio_play_sound(sndElevatorMusic, 0, true);

@@ -1,0 +1,182 @@
+// feather ignore all
+
+/// @func LookoutAudioEffects()
+/// @param {Bool} startVisible? Whether the debug view starts visible (true) or not (false). [Default: true]
+/// 
+/// @desc ...
+/// 
+/// Call this function once at the start of the game.
+function LookoutAudioEffects(_startVisible = true) {
+	static __ = new (function(_startVisible) constructor {
+		static __Effect = function(_index) constructor {
+			__index = _index;
+			__section = undefined;
+			__type = undefined;
+			__prevType = undefined;
+			__effect = undefined;
+			__initialized = false;
+			__controls = [];
+			
+			static __Control = function(_control) {
+				array_push(__controls, _control);
+			};
+			static __Mix = function() {
+				__Control(dbg_slider(ref_create(__effect, "mix"), 0, 1, "Mix"));
+			};
+			static __Quality = function() {
+				__Control(dbg_slider_int(ref_create(__effect, "q"), 1, 100, "Quality"));
+			};
+			static __Gain = function() {
+				__Control(dbg_slider(ref_create(__effect, "gain"), 0, 3, "Gain", 0.05));
+			};
+			static __Frequency = function() {
+				__Control(dbg_text_input(ref_create(__effect, "freq"), "Frequency", "r"));
+			};
+			
+			static __Refresh = function() {
+				{static _types = [
+					undefined,
+					AudioEffectType.Reverb1,
+					AudioEffectType.Delay,
+					AudioEffectType.Bitcrusher,
+					AudioEffectType.LPF2,
+					AudioEffectType.HPF2,
+					AudioEffectType.Gain,
+					AudioEffectType.Tremolo,
+					AudioEffectType.EQ,
+					AudioEffectType.PeakEQ,
+					AudioEffectType.HiShelf,
+					AudioEffectType.LoShelf,
+					AudioEffectType.Compressor,
+				];}
+				{static _names = [
+					"None",
+					"Reverb1",
+					"Delay",
+					"Bitcrusher",
+					"LPF2",
+					"HPF2",
+					"Gain",
+					"Tremolo",
+					"EQ",
+					"PeakEQ",
+					"HiShelf",
+					"LoShelf",
+					"Compressor",
+				];}
+				
+				if ((__initialized) and (__type == __prevType)) return;
+				
+				if (__initialized) {
+					array_foreach(__controls, function(_control) {
+						dbg_control_delete(_control);
+					});
+					__controls = [];
+					dbg_set_section(__section);
+				}
+				else {
+					__section = dbg_section($"Effect {__index}", (__index == 0));
+				}
+				__initialized = true;
+				__prevType = __type;
+				
+				__effect = (is_undefined(__type) ? undefined : audio_effect_create(__type));
+				audio_bus_main.effects[__index] = __effect;
+				
+				__Control(dbg_drop_down(ref_create(self, "__type"), _types, _names, "Effect"));
+				
+				if (__effect != undefined) {
+					__Control(dbg_checkbox(ref_create(__effect, "bypass"), "Bypass"));
+					__Control(dbg_text_separator(""));
+				}
+				
+				switch (__type) {
+					case AudioEffectType.Reverb1: {
+						__Control(dbg_slider(ref_create(__effect, "size"), 0, 1, "Size"));
+						__Control(dbg_slider(ref_create(__effect, "damp"), 0, 1, "Damp"));
+						__Mix();
+						break;
+					}
+					case AudioEffectType.Delay: {
+						__Control(dbg_slider(ref_create(__effect, "time"), 0, 3, "Time (seconds)", 0.1));
+						__Control(dbg_slider(ref_create(__effect, "feedback"), 0, 1, "Feedback"));
+						__Mix();
+						break;
+					}
+					case AudioEffectType.Bitcrusher: {
+						__Gain();
+						__Control(dbg_slider_int(ref_create(__effect, "factor"), 0, 100, "Factor"));
+						__Control(dbg_slider_int(ref_create(__effect, "resolution"), 0, 16, "Resolution"));
+						__Mix();
+						break;
+					}
+					case AudioEffectType.LPF2: {
+						__Control(dbg_text_input(ref_create(__effect, "cutoff"), "Cutoff", "r"));
+						__Quality();
+						break;
+					}
+					case AudioEffectType.HPF2: {
+						__Control(dbg_text_input(ref_create(__effect, "cutoff"), "Cutoff", "r"));
+						__Quality();
+						break;
+					}
+					case AudioEffectType.Gain: {
+						__Gain();
+						break;
+					}
+					case AudioEffectType.Tremolo: {
+						static _shapes = [AudioLFOType.Sine, AudioLFOType.Square, AudioLFOType.Triangle, AudioLFOType.Sawtooth, AudioLFOType.InvSawtooth];
+						static _shapeNames = ["Sine", "Square", "Triangle", "Sawtooth", "InvSawtooth"];
+						
+						__Control(dbg_slider(ref_create(__effect, "rate"), 0, 20, "Rate", 0.5));
+						__Control(dbg_slider(ref_create(__effect, "intensity"), 0, 1, "Intensity"));
+						__Control(dbg_slider(ref_create(__effect, "offset"), 0, 1, "Offset"));
+						__Control(dbg_drop_down(ref_create(__effect, "shape"), _shapes, _shapeNames, "Shape"));
+						break;
+					}
+					case AudioEffectType.EQ: {
+						__Control(dbg_text(" ..."));
+						break;
+					}
+					case AudioEffectType.PeakEQ:
+					case AudioEffectType.HiShelf:
+					case AudioEffectType.LoShelf: {
+						__Frequency();
+						__Quality();
+						__Gain();
+						break;
+					}
+					case AudioEffectType.Compressor: {
+						__Control(dbg_slider(ref_create(__effect, "ingain"), 0, 3, "In Gain", 0.05));
+						__Control(dbg_slider(ref_create(__effect, "threshold"), 0.001, 1, "Threshold"));
+						__Control(dbg_text_input(ref_create(__effect, "ratio"), "Ratio", "r"));
+						__Control(dbg_slider(ref_create(__effect, "attack"), 0.001, 1, "Attack"));
+						__Control(dbg_slider(ref_create(__effect, "release"), 0.001, 0.1, "Release"));
+						__Control(dbg_slider(ref_create(__effect, "outgain"), 0, 3, "Out Gain", 0.05));
+						break;
+					}
+				}
+			};
+		};
+		
+		__Refresh = function() {
+			dbg_set_view(__view)
+			array_foreach(__effects, function(_effect) {
+				_effect.__Refresh();
+			});
+		};
+		
+		call_later(1, time_source_units_frames, function() {
+			if (not is_debug_overlay_open()) return;
+			
+			__Refresh();
+		}, true);
+		
+		__view = dbg_view("Lookout: Audio Effects", _startVisible, 16, 35, 420, 500);
+		__effects = array_create_ext(8, function(_i) {
+			return new __Effect(_i);
+		});
+		__Refresh();
+	})(_startVisible);
+}
+
