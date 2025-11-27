@@ -53,6 +53,7 @@
     {"id":{"name":"__LookoutInit","path":"scripts/__LookoutInit/__LookoutInit.yy",},},
     {"id":{"name":"__LookoutMacros","path":"scripts/__LookoutMacros/__LookoutMacros.yy",},},
     {"id":{"name":"__LookoutUtility","path":"scripts/__LookoutUtility/__LookoutUtility.yy",},},
+    {"id":{"name":"__LookoutViewAudioEffects","path":"scripts/__LookoutViewAudioEffects/__LookoutViewAudioEffects.yy",},},
     {"id":{"name":"__LookoutViewDisplay","path":"scripts/__LookoutViewDisplay/__LookoutViewDisplay.yy",},},
     {"id":{"name":"LookoutViewAudioEffects","path":"scripts/LookoutViewAudioEffects/LookoutViewAudioEffects.yy",},},
     {"id":{"name":"LookoutViewDisplay","path":"scripts/LookoutViewDisplay/LookoutViewDisplay.yy",},},
