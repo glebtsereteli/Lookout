@@ -1,7 +1,0 @@
-
-Lookout Info.
-+---------------+------------------------------------------+
-| Author        | Gleb Tsereteli                           |
-| GitHub        | https://github.com/glebtsereteli/Lookout |
-| itch.io       | https://glebtsereteli.itch.io/Lookout    |
-+---------------+------------------------------------------+
