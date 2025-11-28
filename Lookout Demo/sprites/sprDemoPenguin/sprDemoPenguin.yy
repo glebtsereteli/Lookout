@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"02. Penguin",
-    "path":"folders/01. Demo/02. Objects/02. Penguin.yy",
+    "path":"folders/01. Demo/02. Instances/02. Penguin.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

@@ -16,19 +16,33 @@ function LookoutResources(_startVisible = true) {
 		var _Refresh = function() {
 			if (not is_debug_overlay_open()) return;
 			
-			var _resources = debug_event("ResourceCounts", true);
+			__resources = debug_event("ResourceCounts", true);
 			
 			var _syncGroup = audio_create_sync_group(false);
-			_resources.__audioSyncGroups = _syncGroup;
+			__resources.__audioSyncGroups = _syncGroup;
 			audio_destroy_sync_group(_syncGroup);
 			
 			var _cam = camera_create();
-			_resources.__cameras = _cam;
+			__resources.__cameras = _cam;
 			camera_destroy(_cam);
 			
-			_resources.__animCurves = array_length(asset_get_ids(asset_animationcurve));
+			__resources.__layers = 0;
+			__resources.__layerElements = 0;
+			__resources.__layerEffects = 0;
 			
-			struct_foreach(_resources, function(_key, _value) {
+			var _layers = layer_get_all();
+			if (_layers != -1) {
+				__resources.__layers = array_length(_layers);
+				
+				array_foreach(_layers, function(_layer) {
+					__resources.__layerElements += array_length(layer_get_all_elements(_layer));
+					__resources.__layerEffects += (layer_get_fx(_layer) != -1);
+				});
+			}
+			
+			__resources.__animCurves = array_length(asset_get_ids(asset_animationcurve));
+			
+			struct_foreach(__resources, function(_key, _value) {
 				self[$ _key] ??= _value;
 				self[$ $"{_key}Prev"] ??= _value;
 				
@@ -49,7 +63,7 @@ function LookoutResources(_startVisible = true) {
 		_Refresh();
 		call_later(1, time_source_units_frames, _Refresh, true);
 		
-		dbg_view("Lookout: Resources", _startVisible, 16, 35, 420, 640);
+		dbg_view("Lookout: Resources", _startVisible, 16, 35, 420, 671);
 		dbg_section("Resources"); {
 			dbg_text_separator("Data Structures", 1); {
 				dbg_watch(ref_create(self, "listCount"), "DS Lists");
@@ -59,25 +73,28 @@ function LookoutResources(_startVisible = true) {
 				dbg_watch(ref_create(self, "priorityCount"), "DS Priority Queues");
 				dbg_watch(ref_create(self, "stackCount"), "DS Stacks");
 			}
-			dbg_text_separator("Audio", 1); {
-				dbg_watch(ref_create(self, "audioEmitterCount"), "Audio Emitters");
-				dbg_watch(ref_create(self, "__audioSyncGroups"), "Audio Sync Groups");
-			}
-			dbg_text_separator("Particles", 1); {
+			dbg_text_separator("Particles & Audio", 1); {
 				dbg_watch(ref_create(self, "partSystemCount"), "Particle Systems");
 				dbg_watch(ref_create(self, "partEmitterCount"), "Particle Emitters");
 				dbg_watch(ref_create(self, "partTypeCount"), "Particle Types");
+				dbg_watch(ref_create(self, "audioEmitterCount"), "Audio Emitters");
+				dbg_watch(ref_create(self, "__audioSyncGroups"), "Audio Sync Groups");
+			}
+			dbg_text_separator("Room", 1); {
+				dbg_watch(ref_create(self, "__layers"), "Layers");
+				dbg_watch(ref_create(self, "__layerElements"), "Layer Elements");
+				dbg_watch(ref_create(self, "__layerEffects"), "Layer Effects");
+				dbg_watch(ref_create(self, "instanceCount"), "Instances");
 			}
 			dbg_text_separator("Others", 1); {
+				dbg_watch(ref_create(self, "__cameras"), "Cameras");
 				dbg_watch(ref_create(self, "mpGridCount"), "MP Grids");
 				dbg_watch(ref_create(self, "bufferCount"), "Buffers");
 				dbg_watch(ref_create(self, "vertexBufferCount"), "Vertex Buffers");
 				dbg_watch(ref_create(self, "surfaceCount"), "Surfaces");
 				dbg_watch(ref_create(self, "timeSourceCount"), "Time Sources");
-				dbg_watch(ref_create(self, "__cameras"), "Cameras");
 			}
 		}
-		//dbg_watch(ref_create(self, "instanceCount"), "Instances");
 		dbg_section("Assets"); {
 			dbg_watch(ref_create(self, "spriteCount"), "Sprites");
 			dbg_watch(ref_create(self, "pathCount"), "Paths");

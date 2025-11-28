@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"03. Owl",
-    "path":"folders/01. Demo/02. Objects/03. Owl.yy",
+    "path":"folders/01. Demo/02. Instances/03. Owl.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",

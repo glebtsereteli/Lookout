@@ -26,7 +26,7 @@
   "origin":4,
   "parent":{
     "name":"05. Gorilla",
-    "path":"folders/01. Demo/02. Objects/05. Gorilla.yy",
+    "path":"folders/01. Demo/02. Instances/05. Gorilla.yy",
   },
   "preMultiplyAlpha":false,
   "resourceType":"GMSprite",
