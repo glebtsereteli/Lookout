@@ -10,7 +10,7 @@
 function LookoutAudioEffects(_startVisible = true) {
 	static __ = new (function(_startVisible) constructor {
 		__Refresh = function() {
-			dbg_set_view(__view)
+			dbg_set_view(__view);
 			array_foreach(__effects, function(_effect) {
 				_effect.__Refresh();
 			});
@@ -23,6 +23,31 @@ function LookoutAudioEffects(_startVisible = true) {
 		}, true);
 		
 		__LookoutCreateView("Lookout: Audio Effects", _startVisible, 420, 500);
+		dbg_section("Master"); {
+			var _w = 100;
+			var _h = 19;
+			dbg_button("Remove All", function() {
+				array_foreach(audio_bus_main.effects, function(_effect, _i) {
+					delete audio_bus_main.effects[_i];
+				});
+			}, _w, _h);
+			dbg_same_line();
+			dbg_button("Bypass All", function() {
+				array_foreach(audio_bus_main.effects, function(_effect) {
+					with (_effect) {
+						bypass = true;
+					}
+				});
+			}, _w, _h);
+			dbg_same_line();
+			dbg_button("Unbypass All", function() {
+				array_foreach(audio_bus_main.effects, function(_effect) {
+					with (_effect) {
+						bypass = false;
+					}
+				});
+			}, _w, _h);
+		}
 		__effects = array_create_ext(8, function(_i) {
 			return new __LookoutAudioEffect(_i);
 		});

@@ -47,7 +47,7 @@ function __LookoutAudioEffect(_index) constructor {
 		
 		if (_remoteEffect != __effect) {
 			__effect = _remoteEffect;
-			__type = _remoteEffect.type;
+			__type = (is_undefined(__effect) ? undefined : __effect.type);
 			__prevType = __type;
 			_tookRemote = true;
 		}
