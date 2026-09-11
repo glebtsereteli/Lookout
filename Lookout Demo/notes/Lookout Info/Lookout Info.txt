@@ -1,8 +1,16 @@
 
 # Lookout v2.0.0 (2026.XX.XX) Info
 
+## Links
+
 - Author: Gleb Tsereteli
 - GitHub: https://github.com/glebtsereteli/Lookout
 - itch.io: https://glebtsereteli.itch.io/lookout
 - Documentation: https://glebtsereteli.github.io/Lookout
 - Support: Visit the Lookout thread in the `#your-resources` channel on the [GameMaker Kitchen](https://discord.gg/gamemakerkitchen) Discord server.
+
+## Views
+
+### Display
+
+### 

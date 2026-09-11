@@ -10,3 +10,7 @@ with (audioEffects) {
 	    audio_stop_sound(sound);
 	}
 }
+
+if (keyboard_check_pressed(vk_space)) {
+	Lookout.Resources();
+}

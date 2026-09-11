@@ -15,7 +15,7 @@
   "name":"sndDemoAudioEffects",
   "parent":{
     "name":"04 Audio Effects",
-    "path":"folders/Demo/04 Audio Effects.yy",
+    "path":"folders/Demo/Tests/04 Audio Effects.yy",
   },
   "preload":false,
   "resourceType":"GMSound",

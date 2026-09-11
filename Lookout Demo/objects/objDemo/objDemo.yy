@@ -1,16 +1,16 @@
 {
   "$GMObject":"",
-  "%Name":"objDemoControl",
+  "%Name":"objDemo",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"objDemoControl",
+  "name":"objDemo",
   "overriddenProperties":[],
   "parent":{
-    "name":"01 Core",
-    "path":"folders/Demo/01 Core.yy",
+    "name":"Core",
+    "path":"folders/Demo/Core.yy",
   },
   "parentObjectId":null,
   "persistent":true,

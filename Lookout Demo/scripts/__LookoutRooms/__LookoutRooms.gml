@@ -1,8 +1,6 @@
 // feather ignore all
 
-/// @desc Provides control over room switching and displays room history in a "Lookout: Rooms" debug view.
-/// Useful for quickly switching between rooms for testing, and identifying unintentional room changes.
-function __LookoutRooms() : __LookoutModule("Rooms", 420, 414) constructor {
+function __LookoutRooms() : __LookoutView("Rooms", 420, 414) constructor {
 	// Shared
 	static __Init = function() {
 		dbg_section("Control");

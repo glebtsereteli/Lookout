@@ -1,8 +1,6 @@
 // feather ignore all
 
-/// @desc Provides info and controls for display, window, application surface, and views in a "Lookout: Display" debug view.
-/// Inspired by Pixelated Pope's display_write_all_specs().
-function __LookoutDisplay() : __LookoutModule("Display", 420, 675) constructor {
+function __LookoutDisplay() : __LookoutView("Display", 420, 675) constructor {
 	// Shared
 	static __Setup = function() {
 		__Refresh();

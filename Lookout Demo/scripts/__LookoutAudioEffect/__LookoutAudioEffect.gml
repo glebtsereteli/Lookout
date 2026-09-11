@@ -1,5 +1,6 @@
 // feather ignore all
 
+/// @ignore
 function __LookoutAudioEffect(_index) constructor {
 	static __types = array_concat([undefined], __LookoutGetAudioEffectTypes());
 	static __n = array_length(__types);

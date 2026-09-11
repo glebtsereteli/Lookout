@@ -6,8 +6,18 @@ if (instance_number(object_index) > 1) {
 }
 
 // Initialize demo views
-var _x = 16;
-var _y = 35;
+var _x = LOOKOUT_VIEW_X;
+var _y = LOOKOUT_VIEW_Y;
+dbg_view("Demo", true, _x, _y, 200, 200); {
+	dbg_section("Views"); {
+		var _w = 180;
+		dbg_button("Resources",		function()	{ Lookout.Resources();		}, _w);
+		dbg_button("Instances",		function()	{ Lookout.Instances();		}, _w);
+		dbg_button("Display",		function()	{ Lookout.Display();		}, _w);
+		dbg_button("Rooms",			function()	{ Lookout.Rooms();			}, _w);
+		dbg_button("Audio Effects", function()	{ Lookout.AudioEffects();	}, _w);
+	}
+}
 dbg_view("Demo: Resources", false, _x, _y, 300, 850); {
 	global.partSystem = part_system_create();
 	

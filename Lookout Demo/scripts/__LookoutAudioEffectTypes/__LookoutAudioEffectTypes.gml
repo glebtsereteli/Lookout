@@ -1,5 +1,6 @@
 // feather ignore all
 
+/// @ignore
 function __LookoutGetAudioEffectTypes() {
 	static _types = [
 		AudioEffectType.Reverb1,

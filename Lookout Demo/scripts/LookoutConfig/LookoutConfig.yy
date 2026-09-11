@@ -1,12 +1,12 @@
 {
   "$GMScript":"v1",
-  "%Name":"__LookoutViewDisplay",
+  "%Name":"LookoutConfig",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"__LookoutViewDisplay",
+  "name":"LookoutConfig",
   "parent":{
-    "name":"Views",
-    "path":"folders/Lookout/(System)/Views.yy",
+    "name":"Lookout",
+    "path":"folders/Lookout.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

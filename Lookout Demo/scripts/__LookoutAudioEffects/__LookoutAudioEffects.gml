@@ -1,8 +1,6 @@
 // feather ignore all
 
-/// @desc Provides controls for all 8 audio effects on audio_bus_main in a "Lookout: Audio Effects" debug view.
-/// Includes type selection and parameter tweaking.
-function __LookoutAudioEffects() : __LookoutModule("AudioEffects", 420, 500) constructor {
+function __LookoutAudioEffects() : __LookoutView("AudioEffects", 420, 500) constructor {
 	// Shared
 	static __Init = function() {
 		dbg_section("Master"); {

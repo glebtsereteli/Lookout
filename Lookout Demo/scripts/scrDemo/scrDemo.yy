@@ -5,8 +5,8 @@
   "isDnD":false,
   "name":"scrDemo",
   "parent":{
-    "name":"01 Core",
-    "path":"folders/Demo/01 Core.yy",
+    "name":"Core",
+    "path":"folders/Demo/Core.yy",
   },
   "resourceType":"GMScript",
   "resourceVersion":"2.0",

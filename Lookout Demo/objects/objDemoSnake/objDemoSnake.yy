@@ -7,7 +7,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"04. Snake",
-    "path":"folders/Demo/02 Instances/04. Snake.yy",
+    "path":"folders/Demo/Tests/02 Instances/04. Snake.yy",
   },
   "parentObjectId":{
     "name":"objDemoParent",

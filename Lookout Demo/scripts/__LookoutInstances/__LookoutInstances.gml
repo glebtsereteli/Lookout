@@ -1,8 +1,6 @@
 // feather ignore all
 
-/// @desc Displays the overall and per-object instance counts in a "Lookout: Instances" debug view, including differences between frames, with an option to destroy objects.
-/// Helps track existing objects and their instance counts to identify objects that are out of place.
-function __LookoutInstances() : __LookoutModule("Instances") constructor {
+function __LookoutInstances() : __LookoutView("Instances") constructor {
 	// Shared
 	static __Init = __Refresh;
 	static __Refresh = function() {
