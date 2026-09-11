@@ -1,6 +1,6 @@
 // feather ignore all
 
-function __LookoutResources() : __LookoutView("Resources", 420, 705) constructor {
+function __LookoutResources() : __LookoutView("Resources", 420, 760) constructor {
 	// Shared
 	static __Init = function() {
 		__Refresh();
@@ -9,8 +9,8 @@ function __LookoutResources() : __LookoutView("Resources", 420, 705) constructor
 			dbg_text_separator("Data Structures", 1); {
 				dbg_watch(ref_create(self, "listCount"), "DS Lists");
 				dbg_watch(ref_create(self, "mapCount"), "DS Maps");
-				dbg_watch(ref_create(self, "queueCount"), "DS Queues");
 				dbg_watch(ref_create(self, "gridCount"), "DS Grids");
+				dbg_watch(ref_create(self, "queueCount"), "DS Queues");
 				dbg_watch(ref_create(self, "priorityCount"), "DS Priority Queues");
 				dbg_watch(ref_create(self, "stackCount"), "DS Stacks");
 			}
@@ -25,6 +25,8 @@ function __LookoutResources() : __LookoutView("Resources", 420, 705) constructor
 				dbg_watch(ref_create(self, "__layers"), "Layers");
 				dbg_watch(ref_create(self, "__layerElements"), "Layer Elements");
 				dbg_watch(ref_create(self, "__layerEffects"), "Layer Effects");
+				dbg_watch(ref_create(self, "__tilemaps"), "Tilemaps");
+				dbg_watch(ref_create(self, "__sequenceInstances"), "Sequences");
 				dbg_watch(ref_create(self, "instanceCount"), "Instances");
 			}
 			dbg_text_separator("Others", 1); {
@@ -42,6 +44,7 @@ function __LookoutResources() : __LookoutView("Resources", 420, 705) constructor
 			dbg_watch(ref_create(self, "fontCount"), "Fonts");
 			dbg_watch(ref_create(self, "roomCount"), "Rooms");
 			dbg_watch(ref_create(self, "__animCurves"), "Animation Curves");
+			dbg_watch(ref_create(self, "__sequenceAssets"), "Sequences");
 			dbg_watch(ref_create(self, "timelineCount"), "Timelines");
 		}
 		dbg_section("Memory"); {
@@ -66,18 +69,35 @@ function __LookoutResources() : __LookoutView("Resources", 420, 705) constructor
 		__resources.__layers = 0;
 		__resources.__layerElements = 0;
 		__resources.__layerEffects = 0;
+		__resources.__tilemaps = 0;
+		__resources.__sequenceInstances = 0;
 		
 		var _layers = layer_get_all();
 		if (_layers != -1) {
 			__resources.__layers = array_length(_layers);
 			
 			array_foreach(_layers, function(_layer) {
-				__resources.__layerElements += array_length(layer_get_all_elements(_layer));
+				var _elements = layer_get_all_elements(_layer);
+				__resources.__layerElements += array_length(_elements);
 				__resources.__layerEffects += (layer_get_fx(_layer) != -1);
+				
+				array_foreach(_elements, function(_element) {
+					switch (layer_get_element_type(_element)) {
+						case layerelementtype_tilemap: {
+							__resources.__tilemaps++;
+							break;
+						}
+						case layerelementtype_sequence: {
+							__resources.__sequenceInstances++;
+							break;
+						}
+					}
+				});
 			});
 		}
 		
 		__resources.__animCurves = array_length(asset_get_ids(asset_animationcurve));
+		__resources.__sequenceAssets = array_length(asset_get_ids(asset_sequence));
 		
 		struct_foreach(__resources, function(_key, _value) {
 			self[$ _key] ??= _value;

@@ -1,4 +1,5 @@
-# Lookout v1.1.0 Demo
+
+# Lookout v2.0.0 Demo
 
 ## Welcome!
 Welcome to the Lookout demo! This demo showcases the library's debug views in action.
